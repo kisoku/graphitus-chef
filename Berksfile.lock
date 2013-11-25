@@ -1,0 +1,47 @@
+{
+  "sources": {
+    "graphitus": {
+      "path": "."
+    },
+    "apt": {
+      "locked_version": "2.0.0"
+    },
+    "graphite": {
+      "locked_version": "1.0.2",
+      "git": "https://github.com/kisoku/chef-graphite",
+      "ref": "e5c6af84c5c6d1a383bb9c84b8342310cfbddc44"
+    },
+    "poise": {
+      "locked_version": "0.0.1",
+      "git": "https://github.com/poise/poise",
+      "ref": "dfc03b02e37a8238f681a99b57120624f6a9110e"
+    },
+    "graphitus-test": {
+      "path": "./test/cookbooks/graphitus-test"
+    },
+    "git": {
+      "locked_version": "2.5.2"
+    },
+    "dmg": {
+      "locked_version": "1.1.0"
+    },
+    "build-essential": {
+      "locked_version": "1.4.0"
+    },
+    "yum": {
+      "locked_version": "2.3.0"
+    },
+    "windows": {
+      "locked_version": "1.10.0"
+    },
+    "chef_handler": {
+      "locked_version": "1.1.4"
+    },
+    "runit": {
+      "locked_version": "1.1.6"
+    },
+    "python": {
+      "locked_version": "1.3.6"
+    }
+  }
+}
