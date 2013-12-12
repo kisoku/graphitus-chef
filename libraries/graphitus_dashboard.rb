@@ -23,7 +23,7 @@ require 'json'
 
 DASHBOARD_ATTRIBUTES = %w[
   title columns width height user timeback from until legend
-  refresh refreshintervalseconds defaultlinewidth tz parameters
+  refresh refreshintervalseconds defaultlinewidth tz data parameters
 ]
 
 class Chef
