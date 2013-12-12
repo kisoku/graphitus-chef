@@ -47,6 +47,7 @@ class Chef
     attribute(:refreshintervalseconds, kind_of: Fixnum)
     attribute(:defaultlinewidth, kind_of: Fixnum)
     attribute(:tz, kind_of: String)
+    attribute(:data, kind_of: Array)
     attribute(:parameters, kind_of: Hash)
 
     def json_file
