@@ -43,7 +43,7 @@ class Chef
     attribute(:from, kind_of: String)
     attribute(:until, kind_of: String)
     attribute(:legend, kind_of: String)
-    attribute(:refresh, kind_of: Fixnum)
+    attribute(:refresh, kind_of: [TrueClass, FalseClass], default: true)
     attribute(:refreshintervalseconds, kind_of: Fixnum)
     attribute(:defaultlinewidth, kind_of: Fixnum)
     attribute(:tz, kind_of: String)
