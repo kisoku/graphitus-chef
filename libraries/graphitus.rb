@@ -36,6 +36,7 @@ class Chef
     attribute(:git_url, kind_of: String, default: 'https://github.com/erezmazor/graphitus')
     attribute(:graphite_url, kind_of: String, default: 'http://localhost')
     attribute(:timezones, kind_of: Array, default: [ "America/Tijuana", "Asia/Tokyo" ])
+    attribute(:minimumrefresh, kind_of: Fixnum, default: 10)
 
     def config_file
       ::File.join(path, "config.json")
@@ -77,6 +78,7 @@ class Chef
         dashboardListUrl: new_resource.dashboard_list_url,
         dashboardUrlTemplate: new_resource.dashboard_url_template,
         timezones: new_resource.timezones
+        minimumRefresh: new_resource.minimumrefresh
       }
 
       file new_resource.config_file do
