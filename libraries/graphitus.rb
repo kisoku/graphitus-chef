@@ -76,7 +76,7 @@ class Chef
         graphiteUrl: new_resource.graphite_url,
         dashboardListUrl: new_resource.dashboard_list_url,
         dashboardUrlTemplate: new_resource.dashboard_url_template,
-        timeZones: new_resource.timezones
+        timezones: new_resource.timezones
       }
 
       file new_resource.config_file do
