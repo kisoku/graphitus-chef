@@ -21,10 +21,23 @@
 
 require 'json'
 
-DASHBOARD_ATTRIBUTES = %w[
-  title columns width height user timeback from until legend
-  refresh refreshintervalseconds defaultlinewidth tz data parameters
-]
+DASHBOARD_ATTRIBUTE_MAP = {
+  title: "title",
+  columns: "columns",
+  width: "width",
+  height: "height",
+  user: "user",
+  timeback: "timeBack",
+  from: "from",
+  until: "until",
+  legend: "legend",
+  refresh: "refresh",
+  refreshintervalseconds: "refreshIntervalSeconds",
+  defaultlinewidth: "defaultLineWidth",
+  tz: "tz",
+  data: "data",
+  parameters: "parameters"
+}
 
 class Chef
   class Resource::GraphitusDashboard < Resource
@@ -35,20 +48,20 @@ class Chef
     actions(:create)
 
     attribute(:title, kind_of: String, default: lazy { name })
-    attribute(:columns, kind_of: Fixnum, required: true)
-    attribute(:width, kind_of: Fixnum, required: true)
-    attribute(:height, kind_of: Fixnum, required: true)
+    attribute(:columns, kind_of: Fixnum, default: 2)
+    attribute(:width, kind_of: Fixnum, default: 700)
+    attribute(:height, kind_of: Fixnum, default: 350)
     attribute(:user, kind_of: String)
-    attribute(:timeback, kind_of: String)
-    attribute(:from, kind_of: String)
-    attribute(:until, kind_of: String)
-    attribute(:legend, kind_of: String)
+    attribute(:timeback, kind_of: String, default: '24h')
+    attribute(:from, kind_of: String, default: '')
+    attribute(:until, kind_of: String, default: '')
+    attribute(:legend, kind_of: [TrueClass, FalseClass], default: true)
     attribute(:refresh, kind_of: [TrueClass, FalseClass], default: true)
-    attribute(:refreshintervalseconds, kind_of: Fixnum)
-    attribute(:defaultlinewidth, kind_of: Fixnum)
-    attribute(:tz, kind_of: String)
-    attribute(:data, kind_of: Array)
-    attribute(:parameters, kind_of: Hash)
+    attribute(:refreshintervalseconds, kind_of: Fixnum, default: 90)
+    attribute(:defaultlinewidth, kind_of: Fixnum, default: 2)
+    attribute(:tz, kind_of: String, default: 'America/Tijuana')
+    attribute(:data, kind_of: Array, default: [])
+    attribute(:parameters, kind_of: Hash, default: {})
 
     def json_file
       "#{name}.json"
@@ -70,14 +83,11 @@ class Chef
 
     def resource_dashboard_config
       config = {}
-      config = ::DASHBOARD_ATTRIBUTES.map {|attr|
+      ::DASHBOARD_ATTRIBUTE_MAP.each_pair {|attr,val|
         if (new_resource.respond_to?(attr) && !new_resource.send(attr).nil?)
-          [attr, new_resource.send(attr)]
-        else
-          nil
+          config[val] = new_resource.send(attr)
         end
-      }.compact.flatten
-      config = Hash[*config]
+      }
 
       file new_resource.path do
         owner new_resource.parent.owner
