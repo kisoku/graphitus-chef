@@ -35,6 +35,7 @@ DASHBOARD_ATTRIBUTE_MAP = {
   refreshintervalseconds: "refreshIntervalSeconds",
   defaultlinewidth: "defaultLineWidth",
   tz: "tz",
+  averageseries: "averageSeries",
   data: "data",
   parameters: "parameters"
 }
@@ -60,6 +61,7 @@ class Chef
     attribute(:refreshintervalseconds, kind_of: Fixnum, default: 90)
     attribute(:defaultlinewidth, kind_of: Fixnum, default: 2)
     attribute(:tz, kind_of: String, default: 'America/Tijuana')
+    attribute(:averageseries, kind_of: [TrueClass, FalseClass], default: false)
     attribute(:data, kind_of: Array, default: [])
     attribute(:parameters, kind_of: Hash, default: {})
 
