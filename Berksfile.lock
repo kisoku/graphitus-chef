@@ -4,44 +4,50 @@
       "path": "."
     },
     "apt": {
-      "locked_version": "2.0.0"
+      "locked_version": "2.3.4"
     },
     "graphite": {
       "locked_version": "1.0.2",
       "git": "https://github.com/kisoku/chef-graphite",
-      "ref": "e5c6af84c5c6d1a383bb9c84b8342310cfbddc44"
+      "ref": "0ab0dc4e2ddacce7cc633f7a7656d957b0aefd49"
     },
     "poise": {
-      "locked_version": "0.0.1",
+      "locked_version": "1.0.3",
       "git": "https://github.com/poise/poise",
-      "ref": "dfc03b02e37a8238f681a99b57120624f6a9110e"
+      "ref": "c713f8089258801f5d0af0306efb8943288e5e6d"
     },
     "graphitus-test": {
       "path": "./test/cookbooks/graphitus-test"
     },
     "git": {
-      "locked_version": "2.5.2"
+      "locked_version": "2.9.0"
     },
     "dmg": {
-      "locked_version": "1.1.0"
+      "locked_version": "2.1.2"
     },
     "build-essential": {
-      "locked_version": "1.4.0"
-    },
-    "yum": {
-      "locked_version": "2.3.0"
+      "locked_version": "1.4.2"
     },
     "windows": {
-      "locked_version": "1.10.0"
+      "locked_version": "1.12.6"
     },
     "chef_handler": {
       "locked_version": "1.1.4"
     },
     "runit": {
-      "locked_version": "1.1.6"
+      "locked_version": "1.5.8"
+    },
+    "yum": {
+      "locked_version": "3.0.4"
+    },
+    "yum-epel": {
+      "locked_version": "0.2.0"
     },
     "python": {
-      "locked_version": "1.3.6"
+      "locked_version": "1.4.4"
+    },
+    "apache2": {
+      "locked_version": "1.8.14"
     }
   }
 }
