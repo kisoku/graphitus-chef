@@ -19,9 +19,10 @@
 # limitations under the License.
 #
 
-include_recipe "graphite"
-
-graphitus "/srv/graphitus-test"
+graphitus "graphitus-test" do
+  provider :apache
+  ssl_enabled false
+end
 
 graphitus_dashboard "example1" do
   columns 2
